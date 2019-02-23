@@ -26,10 +26,27 @@ Documentation is for users.
 Don't panic.`
 
 func main() {
-	proverb_array := strings.Split(proverbs, "\n")
+	lines := strings.Split(proverbs, "\n")
 	// fmt.Println(proverb_array[1])
+	for _, line := range lines {
+		fmt.Printf("%s\n", line)
+		m := charCount(line)
+		for k, v := range m {
 
-	for i := 0; i < len(proverb_array); i++ {
+			fmt.Printf("'%c' = %d," , k, v)
 		
+		}
+		fmt.Print("\n\n")
 	}
 }
+
+func charCount(line string) map[rune]int {
+// should return map
+	m := make(map[rune]int, 0)
+	for _, c := range line {
+		m[c] = m[c] + 1
+	}
+	return m
+	
+	}
+	
